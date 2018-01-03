@@ -1,0 +1,16 @@
+Options +FollowSymLinks
+RewriteEngine on
+RewriteBase /administrator/
+Options -Indexes 
+RewriteRule ^index.html$ index.php
+RewriteRule ^quan-ly-tai-khoan.html$ profile.php?menu=profile?%{QUERY_STRING}
+RewriteRule ^quan-ly-giai-dau.html$ list_tournament.php?%{QUERY_STRING}
+RewriteRule ^quan-ly-mua-bong.html$ list_season.php?%{QUERY_STRING}
+RewriteRule ^quan-ly-doi-bong.html$ list_team.php?%{QUERY_STRING}
+RewriteRule ^quan-ly-vong-dau.html$ list_round.php?%{QUERY_STRING}
+RewriteRule ^bang-xep-hang.html$ list_rank.php?%{QUERY_STRING}
+RewriteRule ^quan-ly-tran-dau.html$ list_match.php?%{QUERY_STRING}
+RewriteRule ^quan-ly-thanh-vien.html$ list_user.php?%{QUERY_STRING}
+RewriteRule ^thoat.html$ logout.php
+RewriteRule ^trang-chu.html$ home.php?%{QUERY_STRING}
+

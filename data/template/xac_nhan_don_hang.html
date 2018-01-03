@@ -1,0 +1,27 @@
+<div>
+	<p>Kính chào quý khách</p>
+	<p>Quý khách nhận được email này vì trước đó quý khách đã đặt hàng tại website của chúng tôi</p>
+	<p><b>Thông tin người đã đặt hàng</b></p>
+	<ul style="list-style-position: inside;">
+		<li>Họ tên: [fullname]</li>
+		<li>Điện thoại: [tel]</li>
+		<li>Địa chỉ: [address]</li>
+		<li>Email: [email]</li>
+		<li>Ghi chú: [content]</li>
+	</ul>
+	<p><b>Thông tin đơn hàng</b></p>
+	<p>Mã đơn hàng [cart_id]</p>
+	<table border="1" style="width: 100%;border-collapse: collapse;">
+		<tr>
+			<th style="padding: 5px 10px;">#</th>
+			<th style="padding: 5px 10px;">Tên sản phẩm</th>
+			<th style="padding: 5px 10px;">Giá tiền</th>
+			<th style="padding: 5px 10px;">Số lượng</th>
+			<th style="padding: 5px 10px;">Thành tiền</th>
+		</tr>
+		[list]
+		<tr>
+			<td colspan="5" style="text-align: right">Tổng giá trị đơn hàng: [total_price] VNĐ</td>
+		</tr>
+	</table>
+</div>

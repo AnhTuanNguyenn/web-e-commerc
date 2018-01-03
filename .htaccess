@@ -1,0 +1,56 @@
+Options +FollowSymLinks
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /customer/weboto/
+RewriteRule ^index.html$ index.php
+RewriteRule ^about.html$ about.php
+RewriteRule ^featured-product.html$ list_product.php?type=featured-product
+RewriteRule ^new-product.html$ list_product.php?type=new-product
+RewriteRule ^contact.html$ contact.php
+RewriteRule ^login.html$ login.php
+RewriteRule ^logout.html$ logout.php
+RewriteRule ^register.html$ register.php
+RewriteRule ^profile.html$ profile.php
+RewriteRule ^xem-don-hang.html$ cart.php
+RewriteRule ^xoa-don-hang-([0-9]+).html$ cart.php?thread_id=$1&action=delete
+RewriteRule ^thanh-toan-don-hang.html$ cart.php?action=payment
+RewriteRule ^quan-ly-san-pham.html$ list_thread.php
+RewriteRule ^quan-ly-don-hang.html$ list_order.php
+RewriteRule ^cancel-don-hang-([0-9]+).html$ list_order.php?action=del&cart_id=$1
+RewriteRule ^p([0-9]+)/quan-ly-don-hang.html$ list_order.php?page=$1 [L]
+RewriteRule ^thong-tin-don-hang-([0-9]+).html$ order.php?cart_id=$1
+RewriteRule ^p([0-9]+)/quan-ly-san-pham.html$ list_thread.php?page=$1 [L]
+RewriteRule ^p([0-9]+)/featured-product.html$ list_product.php?type=featured-product&page=$1 [L]
+RewriteRule ^p([0-9]+)/new-product.html$ list_product.php?type=new-product&page=$1 [L]
+RewriteRule ^them-san-pham.html$ create_thread.php
+RewriteRule ^thanh-toan-don-hang.html$ cart.php?action=payment
+RewriteRule ^contact-us.html$ contact.php
+RewriteRule ^xoa-san-pham-([0-9]+).html$ list_thread.php?action=del&thread_id=$1 [L]
+RewriteRule ^cap-nhat-san-pham-([0-9]+).html$ create_thread.php?action=del&thread_id=$1 [L]
+RewriteRule ^san-pham-([0-9]+).html$ detail.php?thread_id=$1 [L]
+RewriteRule ^p([0-9]+)/([a-zA-Z\-0-9]+).html$ chanel_shop.php?page=$1&sub_category=$2 [L]
+RewriteRule ^([a-zA-Z\-0-9]+)/([a-zA-Z\-0-9]+).html$ record.php?sub_category=$1&sub_record=$2 [L]
+RewriteRule ^([a-zA-Z\-0-9]+)$ category_shop.php?sub_category=$1 [L]
+RewriteRule ^p([0-9]+)/([a-zA-Z\-0-9]+)$ category_shop.php?page=$1&sub_category=$2 [L]
+RewriteRule ^([a-zA-Z\-0-9]+)/([a-zA-Z\-0-9]+)$ thread.php?sub_category=$1&sub_thread=$2 [L]
+</IfModule>
+
+<IfModule !mod_rewrite.c>
+ErrorDocument 404 /index.php
+</IfModule>
+
+<IfModule mod_headers.c>
+    # WEEK
+    	<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+        	Header set Cache-Control "max-age=3600, public"
+    	</FilesMatch>
+
+	<FilesMatch "([a-zA-Z0-9\-]+)\_nophoto.jpg$">
+        	Header set Cache-Control "max-age=72000, public"
+	</FilesMatch>
+
+    # WEEK
+    	<FilesMatch "\.(js|css|swf)$">
+        	Header set Cache-Control "max-age=1800"
+    	</FilesMatch>
+</IfModule>
